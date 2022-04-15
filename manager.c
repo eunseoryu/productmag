@@ -73,8 +73,12 @@ void searchName(Product* p[], int count){
 			scnt++;
 		}
 	}
+#ifdef DEBUG
+	printf("(debug) scnt: %d\n", scnt);
+#endif   
+	if(scnt == 0) printf("=> 검색된 데이터가 존재하지 않습니다!");
+	printf("\n");
 }
-//파일에서 정보를 가져오는 함수
 
  //제품명을 찾는 함수
 
