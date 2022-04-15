@@ -81,7 +81,32 @@ void searchName(Product* p[], int count){
 }
 
  //제품명을 찾는 함수
+void searchdeliver(Product* p[], int count){
+	int scnt =0;
+	int deliver;
+	while(1){
+		printf("원하는 배송방법은?(1:새벽배송/ 2: 택배배송)");
+		scanf("%d", &deliver);
+		if(deliver==1||deliver==2) break;
+		else printf("Please RETRY\n");
 
+	}
+
+	printf("\nNo 제품명      설명\t  무게\t  가격\t  배송\n===========================================================\n");
+	for(int i=0; i<count;i++){
+		if(deliver == p[i]->deliver&&p[i]->price !=-1){
+			printf("%d %-10s %-10s %-10s %-8d ",i+1,p[i]->name, p[i]->explain, p[i]->weight, p[i]->price);
+			if(p[i]->deliver==1) printf("새벽배송\n");
+			else printf("택배배송\n");
+			scnt++;
+		}
+	}
+#ifdef DEBUG
+	printf("(debug) scnt: %d\n", scnt);
+#endif
+	if(scnt == 0) printf("=> 검색된 데이터가 존재하지 않습니다");
+	printf("\n");
+}
  //배달법을 통해 검색하는 함수
 
  //가격을 통해 검색하는 함수
