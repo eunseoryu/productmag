@@ -58,6 +58,22 @@ int bringProduct(Product* p[]){
 
 	return i;
 }
+void searchName(Product* p[], int count){
+	int scnt =0;
+	char search[20];
+       	printf("검색할 제품명은? ");
+	scanf("%s", search);
+
+	printf("\nNo 제품명      설명\t  무게\t  가격\t  배송\n===========================================================\n");
+	for(int i=0; i<count;i++){
+		if(strstr(p[i]->name, search)&&p[i]->price !=-1){
+			printf("%d %-10s %-10s %-10s %-8d ",i+1,p[i]->name, p[i]->explain, p[i]->weight, p[i]->price);
+			if(p[i]->deliver==1) printf("새벽배송\n");
+			else printf("택배배송\n");
+			scnt++;
+		}
+	}
+}
 //파일에서 정보를 가져오는 함수
 
  //제품명을 찾는 함수
