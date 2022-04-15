@@ -109,6 +109,22 @@ void searchdeliver(Product* p[], int count){
 }
  //배달법을 통해 검색하는 함수
 
+oid searchprice(Product* p[], int count){
+	int scnt =0;
+	int price;
+	printf("최대로 쓰고자 하는 비용을 입력하세요");
+	scanf("%d", &price);
+
+	printf("\nNo 제품명      설명\t  무게\t  가격\t  배송\n===========================================================\n");
+	for(int i=0; i<count;i++){
+		if(price>p[i]->price&&p[i]->price !=-1){
+			printf("%d %-10s %-10s %-10s %-8d ",i+1,p[i]->name, p[i]->explain, p[i]->weight, p[i]->price);
+			if(p[i]->deliver==1) printf("새벽배송\n");
+			else printf("택배배송\n");
+			scnt++;
+		}
+	}
+}
  //가격을 통해 검색하는 함수
 
  //주문하지 않을 제품을 삭제하는 기능 주문하지 않을 시 (return -1)
