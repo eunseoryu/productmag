@@ -131,5 +131,14 @@ void searchprice(Product* p[], int count){
 	printf("\n");
 }
  //가격을 통해 검색하는 함수
-
+int deleteProduct(Product *p){
+	int a;
+	printf("삭제하시겠습니까(확인:1)?");
+	scanf("%d",&a);
+	if(a!=1) return -1;
+	else{
+		p->price=-1;
+		return 0;
+	}
+}
  //주문하지 않을 제품을 삭제하는 기능 주문하지 않을 시 (return -1)
