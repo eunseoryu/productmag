@@ -40,11 +40,24 @@ void loadProduct(Product* p[], int count){
         if(p[i]->deliver==1) printf("새벽배송\n");
         else printf("택배배송\n");
         }
-    }
-    
-    
- //모든 제품을 출력하는 함수 
+    }   
+ } //모든 제품을 출력하는 함수 
 
+int bringProduct(Product* p[]){
+	FILE *fp;
+	fp= fopen("product.txt","r");
+	int i=0;
+	while(!feof(fp)){
+	        int result = fscanf(fp, "%s %s %s %d %d\n",p[i]->name, p[i]->explain,p[i]->weight, &(p[i]->price), &(p[i]->deliver));
+	        i++;
+	        if(result<1) break;
+       	}
+	fclose(fp);
+	printf("=> 바구니에 담긴 상품들입니다. \n");
+	loadProduct(p,i);
+
+	return i;
+}
 //파일에서 정보를 가져오는 함수
 
  //제품명을 찾는 함수
