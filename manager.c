@@ -109,7 +109,7 @@ void searchdeliver(Product* p[], int count){
 }
  //배달법을 통해 검색하는 함수
 
-oid searchprice(Product* p[], int count){
+void searchprice(Product* p[], int count){
 	int scnt =0;
 	int price;
 	printf("최대로 쓰고자 하는 비용을 입력하세요");
@@ -124,6 +124,11 @@ oid searchprice(Product* p[], int count){
 			scnt++;
 		}
 	}
+#ifdef DEBUG
+	printf("(debug) scnt: %d\n", scnt);
+#endif
+	if(scnt == 0) printf("=> 검색된 데이터가 존재하지 않습니다");
+	printf("\n");
 }
  //가격을 통해 검색하는 함수
 
