@@ -18,7 +18,16 @@ int addProduct(Product *p){
     return 1;
 } //제품을 추가하는 함수
 
-
+void loadProduct(Product* p[], int count){
+       	printf("\nNo 제품명      설명\t  무게\t  가격\t  배송\n===========================================================\n");
+	for(int i=0; i<count;i++){
+		if(p[i]->price!=-1){
+			printf("%d %-10s %-10s %-10s %-8d ",i+1,p[i]->name, p[i]->explain, p[i]->weight, p[i]->price);
+			        if(p[i]->deliver==1) printf("새벽배송\n");
+			        else printf("택배배송\n");
+		}
+	}
+}
  // 파일에 상품을 저장하는 함수
 
 
